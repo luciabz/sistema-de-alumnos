@@ -1,6 +1,11 @@
 package Models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class AdmiUniversidad {
     public static ArrayList<Alumno> listaAlumnos = new ArrayList<>();
@@ -9,7 +14,7 @@ public class AdmiUniversidad {
     public static ArrayList<Carrera> listaCarreras = new ArrayList<>();
     public static ArrayList<Materia> listaMaterias = new ArrayList<>();
     public static ArrayList<Matricula> listaMatriculas = new ArrayList<>();
-
+    public static ArrayList<Asistencia> listaAsistencias = new ArrayList<>();
 
     public static void agregarAlumno(Alumno unAlumno) {
         listaAlumnos.add(unAlumno);
@@ -57,16 +62,38 @@ public class AdmiUniversidad {
     }
     public static boolean estaMatriculado(Matricula unaMatricula){
         boolean existe=false;
-        String identificacion = unaMatricula.getUnAlumno().getIdentificacion();
-        String codigoCurso = unaMatricula.getUnCurso().getCodigo();
+        String identificacion = unaMatricula.getAlumno().getIdentificacion();
+        String codigoMateria = unaMatricula.getMateria().getCodigo();
         for(int i=0;i<listaMatriculas.size();i++){
-            if(listaMatriculas.get(i).getUnAlumno().getIdentificacion().equals(identificacion)
-                    && listaMatriculas.get(i).getUnCurso().getCodigo().equals(codigoCurso)){
+            if(listaMatriculas.get(i).getAlumno().getIdentificacion().equals(identificacion)
+                    && listaMatriculas.get(i).getMateria().getCodigo().equals(codigoMateria)){
                 existe=true;
                 break;
             }
         }
         return existe;
+    }
+
+    public static void registrarAsistencia(Alumno alumno, Materia materia, LocalDate fecha, boolean presente){
+        Asistencia asistencia = new Asistencia(alumno, materia, fecha, presente);
+        listaAsistencias.add(asistencia);
+    }
+
+    public static List<Asistencia>
+    obtenerAsistenciasPorMateria(Materia materia){
+        return listaAsistencias.stream()
+                .filter(asistencia ->asistencia
+                        .getMateria().equals(materia))
+                .collect(Collectors.toList());
+
+    }
+
+    public static List<Asistencia>
+        obtenerAsistenciasPorAlumno(Alumno alumno){
+        return listaAsistencias.stream()
+                .filter(asistencia ->asistencia
+                        .getAlumno().equals(alumno))
+                .collect(Collectors.toList());
     }
 }
 

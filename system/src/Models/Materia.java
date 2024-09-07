@@ -9,6 +9,7 @@ public class Materia {
     private String horario;
     private int aula;
     private int cantidadHoras;
+    private String codigo;
 
 
     //constructor
@@ -20,6 +21,7 @@ public class Materia {
         this.profesor = profesor;
         this.carrera = carrera;
         this.duracion = 0;
+        this.codigo = codigo;
     }
 
 
@@ -66,6 +68,14 @@ public class Materia {
     }
     public void setDuracion(int duracion) {
         this.duracion = duracion;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
 }

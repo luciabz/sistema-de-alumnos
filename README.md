@@ -1,40 +1,40 @@
-<h1>Desarrollo en Java: Gestión de Alumnos y Materias</h1>
+<h1>Java Development: Student and Course Management</h1>
 
-<p><strong>Enunciado:</strong></p>
-<p>Según el siguiente enunciado, desarrollar el código en lenguaje JAVA y entregar todo el código funcionando.</p>
+<p><strong>Task:</strong></p>
+<p>Based on the following requirements, develop the code in JAVA and deliver a fully functioning project.</p>
 
 <p>
-  Implementar una clase con un Menú de opciones, para poder Matricular Alumnos a una Carrera, inscribir un Alumno a una Materia de la Carrera en la que está matriculado (no debe poder inscribirse a una Materia de una Carrera en la que no está matriculado), y poder cargar la situación al final del cursado de una Materia.
+  Implement a class with a menu of options to: enroll students in a program, register a student for a subject in the program they are enrolled in (they should not be able to register for a subject in a program they are not enrolled in), and record the student's status at the end of the course.
 </p>
 <p>
-  También debe poder mostrar por pantalla los Alumnos de una Carrera y Materia (solicitando primero que indique la Carrera a elección y luego pidiendo que indique la Materia de dicha Carrera) que están cursando (inscripto) y aquellos que han finalizado (en este último caso mostrando también su situación final en la misma y su cantidad de inasistencias).
+  You should also be able to display the students in a program and subject (first selecting the program and then the subject within it) who are currently enrolled and those who have completed the course. In the latter case, their final status and the number of absences should also be displayed.
 </p>
 <p>
-  Inicializar el Sistema con 2 Carreras con su Coordinador correspondiente, 2 Materias por curso para cada Carrera con su Profesor correspondiente.
-</p>
-
-<h2>Enunciado detallado</h2>
-<p>En una Universidad se dictan distintas Carreras. Las carreras tienen una duración, un Coordinador, un precio de inscripción y un precio de cuota.</p>
-<p>
-  Existen Alumnos que se matriculan en las mismas pero pueden inscribirse al cursado de algunas materias, a elección. Interesa de los alumnos sus datos personales básicos y se les asigna un número de legajo en la Institución.
-</p>
-<p>
-  Las materias pertenecen a un determinado curso (o año) y son dictadas por Profesores. Un profesor puede dictar más de una materia en la Carrera pero también en otras Carreras (por ejemplo, Matemáticas). La Materia tiene un nombre, el curso al que pertenece, el cuatrimestre en que se dicta, y el Profesor que la dicta.
-</p>
-<p>
-  El Profesor debe cargar la situación de los Alumnos inscriptos en la Materia al finalizar el cursado (Regular / Libre / Promocionado). Además, cada profesor debe registrar la asistencia de los alumnos a sus Materias cada vez que tenga clases.
-</p>
-<p>
-  Se requiere poder saber los Alumnos que están inscriptos a una Carrera, también los inscriptos a una Materia y su estado al finalizar el cursado. También se requiere saber las Materias de una Carrera, el cuatrimestre en que se dictan y el Profesor que las dicta.
+  The system should be initialized with 2 programs, each with a Coordinator, and 2 subjects per course for each program, each with an assigned Professor.
 </p>
 
-<h2>Requisitos del sistema:</h2>
+<h2>Detailed Task</h2>
+<p>At a university, various programs are offered. These programs have a specific duration, a Coordinator, an enrollment fee, and a tuition fee.</p>
+<p>
+  Students enroll in these programs, but can choose to register for specific subjects. The system should track students' basic personal information, and each student is assigned an ID number by the institution.
+</p>
+<p>
+  Subjects belong to a specific course (or year) and are taught by Professors. A Professor can teach more than one subject within a program, and may also teach subjects in other programs (e.g., Mathematics). Subjects have a name, the course they belong to, the semester they are taught in, and the Professor who teaches them.
+</p>
+<p>
+  Professors must record the status of the students enrolled in their subject at the end of the course (Regular / Failed / Promoted). Additionally, Professors are required to register student attendance every time they hold a class.
+</p>
+<p>
+  The system should be able to display the students enrolled in a program, as well as the students registered for a subject and their final status at the end of the course. It should also show the subjects of a program, the semester they are taught, and the Professor responsible for teaching them.
+</p>
+
+<h2>System Requirements:</h2>
 <ul>
-  <li>2 Carreras con su Coordinador.</li>
-  <li>2 Materias por curso para cada Carrera.</li>
-  <li>Profesores asignados a cada Materia.</li>
-  <li>Inscripción de alumnos a Carreras y Materias.</li>
-  <li>Registro de asistencia y situación final de los alumnos.</li>
+  <li>2 Programs with their respective Coordinators.</li>
+  <li>2 Subjects per course for each Program.</li>
+  <li>Professors assigned to each Subject.</li>
+  <li>Student enrollment in Programs and Subjects.</li>
+  <li>Attendance records and final status of students.</li>
 </ul>
 
-<p>Desarrollado en: <strong>Java</strong></p>
+<p>Developed with: <strong>Java</strong></p>

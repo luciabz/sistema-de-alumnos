@@ -7,13 +7,19 @@ public class Materia {
     private String profesor;
     private String carrera;
     private String horario;
-    private String aula;
+    private int aula;
     private int cantidadHoras;
 
 
     //constructor
     public Materia(String nombre) {
         this.nombre = nombre;
+        this.cantidadHoras = 0;
+        this.horario = horario;
+        this.aula = 0;
+        this.profesor = profesor;
+        this.carrera = carrera;
+        this.duracion = 0;
     }
 
 
@@ -22,8 +28,44 @@ public class Materia {
         return nombre;
     }
 
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    public int getCantidadHoras() {
+        return cantidadHoras;
+    }
+    public void setCantidadHoras(int cantidadHoras) {
+        this.cantidadHoras = cantidadHoras;
+    }
+    public String getHorario() {
+        return horario;
+    }
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+    public int getAula() {
+        return aula;
+    }
+    public void setAula(int aula) {
+        this.aula = aula;
+    }
+    public String getProfesor() {
+        return profesor;
+    }
+    public void setProfesor(String profesor) {
+        this.profesor = profesor;
+    }
+    public String getCarrera() {
+        return carrera;
+    }
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+    public int getDuracion() {
+        return duracion;
+    }
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
 }

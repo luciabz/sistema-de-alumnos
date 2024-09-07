@@ -9,7 +9,7 @@ public class Materia {
     private String horario;
     private int aula;
     private int cantidadHoras;
-    private String codigo;
+    private String codigo;//id de la materia para dsp ver asistencias en cada una
 
 
     //constructor

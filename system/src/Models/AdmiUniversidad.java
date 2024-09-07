@@ -75,8 +75,10 @@ public class AdmiUniversidad {
     }
 
     public static void registrarAsistencia(Alumno alumno, Materia materia, LocalDate fecha, boolean presente){
-        Asistencia asistencia = new Asistencia(alumno, materia, fecha, presente);
-        listaAsistencias.add(asistencia);
+        if (alumno != null && materia != null && fecha != null) {
+            Asistencia asistencia = new Asistencia(alumno, materia, fecha, presente);
+            listaAsistencias.add(asistencia);
+        }
     }
 
     public static List<Asistencia>
@@ -94,6 +96,29 @@ public class AdmiUniversidad {
                 .filter(asistencia ->asistencia
                         .getAlumno().equals(alumno))
                 .collect(Collectors.toList());
+
+    }
+
+
+
+
+
+
+
+    public static long contarInasistenciaPorAlumno(Alumno alumno) {
+        return listaAsistencias.stream()
+                .filter(asistencia -> asistencia
+                        .getAlumno().equals(alumno) &&
+                        !asistencia.isPresente())
+                .count();
+    }
+
+    public static long contarInasistenciasPorMateria(Materia materia) {
+        return listaAsistencias.stream()
+                .filter(asistencia ->asistencia
+                        .getMateria().equals(materia)&&
+                        !asistencia.isPresente())
+                .count();
     }
 }
 

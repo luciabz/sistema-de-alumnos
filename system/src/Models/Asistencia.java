@@ -42,6 +42,9 @@ public class Asistencia {
     public void setPresente(boolean presente) {
         this.presente = presente;
     }
+    public boolean isPresente() {
+        return presente;
+    }
 
 
 }

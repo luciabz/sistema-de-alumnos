@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrera {
+    private int id;
     private String nombre;
     private int duracion;
     private Coordinador coordinador;
@@ -11,13 +12,23 @@ public class Carrera {
     private double precioCuota;
     private List<Materia> materias;
 
-    public Carrera(String nombre, int duracion, Coordinador coordinador, double precioInscripcion, double precioCuota) {
+
+    public Carrera(int id,int duracion, String nombre, Coordinador coordinador, List<Materia> materias, double precioCuota, double precioInscripcion) {
+        this.id = id;
         this.nombre = nombre;
         this.duracion = duracion;
         this.coordinador = coordinador;
         this.precioInscripcion = precioInscripcion;
         this.precioCuota = precioCuota;
         this.materias = new ArrayList<>();
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNombre() {

@@ -15,7 +15,7 @@ import java.util.List;
         private List<Materia> materiasInscriptas;
 
         //constructor (siempre debe llamarse como la clase) inicia los atributos
-        public Alumno(String nombre, String apellido, String dni, int NroLegajo, String carrera, String identificacion) {
+        public Alumno(String nombre, String apellido, String dni, int NroLegajo, String carreraid) {
             this.materiasInscriptas = new ArrayList<>();
             this.carreraid = carrera;
             this.nombre = nombre;
@@ -25,6 +25,10 @@ import java.util.List;
 
 
         //metodos
+        public List<Materia> getMateriasInscriptas() {
+            return materiasInscriptas;
+        }
+
         public void setCarreraid(String carreraid) //set introduce dato
         {
             this.carreraid = carreraid;
@@ -34,6 +38,7 @@ import java.util.List;
         public String getCarreraid() { //get presenta datp
             return carreraid;
         }
+
         public String getNombre() {
             return nombre;
         }

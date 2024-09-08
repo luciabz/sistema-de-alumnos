@@ -1,18 +1,19 @@
 package Service;
 
-
 import Models.*;
-
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
+
 public class AlumnoService {
 
     private List<Alumno> alumnos = new ArrayList<>();
     private List<Asistencia> asistencias = new ArrayList<>();
     private List<Carrera> carreras = new ArrayList<>();
     private List<Materia> materias = new ArrayList<>();
+    private SituacionMateria situacion;
+
 
     // Ver asistencias del alumno
     public List<Asistencia> verAsistencias(Long NroLegajo) {
@@ -25,69 +26,40 @@ public class AlumnoService {
         return asistenciasDelAlumno;
     }
 
-    // Ver la situación final del alumno (simplificado)
+    // Ver la situación final del alumno
     public SituacionMateria verSituacionFinal(Long NroLegajo) {
-        for (Alumno alumno : alumnos) {
-            if (alumno.getNroLegajo().equals(NroLegajo)) {
-                return calcularSituacionFinal(alumno);
-            }
-        }
-        throw new RuntimeException("Alumno no encontrado."); // Simplificación
+        return "SituacionMateria{" +
+                "alumno=" + alumnos.getFirst().getNombre() + " " + alumnos.getLast().getApellido() +
+                ", materia=" + materias.getFirst().getNombre() +
+                ", situacion='" + situacion + '\'' +
+                '}';
     }
 
+
     // Obtener datos de la carrera
-    public DatosCarrera verDatosCarrera(Long NroLegajo) {
+    public Carrera verDatosCarrera(Long NroLegajo) {
         for (Alumno alumno : alumnos) {
             if (alumno.getNroLegajo().equals(NroLegajo)) {
                 for (Carrera carrera : carreras) {
-                    if (carrera.getNroLegajo().equals(alumno.getCarreraId())) {
-                        return new DatosCarrera(carrera.getNombre(), carrera.getCoordinador(), carrera.getCuatrimestres());
+                    if (carrera.getId().equals(alumno.getNroLegajo())) {
+                        return new Carrera(carrera.getId(), carrera.getDuracion(),carrera.getNombre(), carrera.getCoordinador(), carrera.getMaterias(), carrera.getPrecioCuota(), carrera.getPrecioInscripcion());
                     }
                 }
             }
         }
-        throw new RuntimeException("Datos de carrera no encontrados."); // Simplificación
+        throw new RuntimeException("Datos de carrera no encontrados.");
     }
 
-    // Inscribirse a materias
-    public void inscribirMateria(Long alumnoId, Long materiaId) {
-        Optional<Alumno> alumnoOpt = alumnos.stream().filter(alumno -> alumno.getNroLegajo().equals(alumnoId)).findFirst();
-        Optional<Materia> materiaOpt = materias.stream().filter(materia -> materia.getCodigo().equals(materiaId)).findFirst();
-
-        if (alumnoOpt.isPresent() && materiaOpt.isPresent()) {
-            Alumno alumno = alumnoOpt.get();
-            Materia materia = materiaOpt.get();
-            if (!alumno.getMaterias().contains(materia)) {
-                alumno.getMaterias().add(materia);
-            }
-        } else {
-            throw new RuntimeException("Alumno o Materia no encontrado.");
-        }
-    }
 
     // Ver materias inscriptas
-    public List<Materia> verMateriasInscriptas(Long alumnoId) {
+    public List<Materia> verMateriasInscriptas(Long NroLegajo) {
         for (Alumno alumno : alumnos) {
-            if (alumno.getNroLegajo().equals(alumnoId)) {
-                return alumno.getMaterias();
+            if (alumno.getNroLegajo().equals(NroLegajo)) {
+                return alumno.getMateriasInscriptas();
             }
         }
         throw new RuntimeException("Alumno no encontrado."); // Simplificación
     }
-
-    // Dar de baja una materia
-    public void darDeBajaMateria(Long alumnoId, Long materiaId) {
-        Optional<Alumno> alumnoOpt = alumnos.stream().filter(alumno -> alumno.getNroLegajo().equals(alumnoId)).findFirst();
-
-        if (alumnoOpt.isPresent()) {
-            Alumno alumno = alumnoOpt.get();
-            alumno.getMaterias().removeIf(materia -> materia.getId().equals(materiaId));
-        } else {
-            throw new RuntimeException("Alumno no encontrado.");
-        }
-    }
-
-
 
 
 }

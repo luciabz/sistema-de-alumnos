@@ -31,13 +31,5 @@ public class Profesor {
     }
 
 
-
-    @Override
-    public String toString() {
-        return "Profesor{" +
-                "nombre='" + nombre + '\'' +
-                ", materias='" + materias + '\'' +
-                '}';
-    }
 }
 

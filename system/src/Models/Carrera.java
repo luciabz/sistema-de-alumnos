@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrera {
-    private int id;
+    private long id;
     private String nombre;
     private int duracion;
     private Coordinador coordinador;
@@ -13,7 +13,7 @@ public class Carrera {
     private List<Materia> materias;
 
 
-    public Carrera(int id,int duracion, String nombre, Coordinador coordinador, List<Materia> materias, double precioCuota, double precioInscripcion) {
+    public Carrera(long id,int duracion, String nombre, Coordinador coordinador, List<Materia> materias, double precioCuota, double precioInscripcion) {
         this.id = id;
         this.nombre = nombre;
         this.duracion = duracion;
@@ -27,7 +27,7 @@ public class Carrera {
         this.id = id;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

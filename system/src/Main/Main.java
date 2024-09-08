@@ -33,10 +33,13 @@ public class Main {
         var asistenciasMateria1 = AdmiUniversidad.obtenerAsistenciasPorMateria(materia1);
         System.out.println("Asistencias en " + materia1.getNombre() + ": " + asistenciasMateria1.size());
 
-        
+
 
         long inasistenciasMateria1= AdmiUniversidad.contarInasistenciasPorMateria(materia1);
         System.out.println("Inasistencias en " + materia1.getNombre() + ": " + inasistenciasMateria1);
+
+
+
     }
 }
 

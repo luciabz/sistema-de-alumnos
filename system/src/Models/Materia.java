@@ -10,7 +10,7 @@ public class Materia {
     private int aula;
     private int cantidadHoras;
     private String codigo;//id de la materia para dsp ver asistencias en cada una
-
+    private int cuatrimestre;
 
     //constructor
     public Materia(String nombre) {
@@ -22,10 +22,15 @@ public class Materia {
         this.carrera = carrera;
         this.duracion = 0;
         this.codigo = codigo;
+        this.cuatrimestre = 0;
     }
 
 
     //metodos
+    public int getCuatrimestre() {
+        return cuatrimestre;
+    }
+
     public String getNombre() {
         return nombre;
     }

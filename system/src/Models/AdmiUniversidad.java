@@ -16,7 +16,9 @@ public class AdmiUniversidad {
     public static ArrayList<Matricula> listaMatriculas = new ArrayList<>();
     public static ArrayList<Asistencia> listaAsistencias = new ArrayList<>();
 
-    public static void agregarAlumno(Alumno unAlumno) {
+
+
+public static void agregarAlumno(Alumno unAlumno) {
         listaAlumnos.add(unAlumno);
     }
 

@@ -13,6 +13,11 @@ public class AlumnoService {
     private List<Carrera> carreras = new ArrayList<>();
     private List<Materia> materias = new ArrayList<>();
     private SituacionMateria situacion;
+    private ProfesorService profesorService;
+
+    public AlumnoService(ProfesorService profesorService) {
+        this.profesorService = profesorService; // Inicialización
+    }
 
 
     // Ver asistencias del alumno
@@ -27,22 +32,27 @@ public class AlumnoService {
     }
 
     // Ver la situación final del alumno
-    public SituacionMateria verSituacionFinal(Long NroLegajo) {
-        return "SituacionMateria{" +
-                "alumno=" + alumnos.getFirst().getNombre() + " " + alumnos.getLast().getApellido() +
-                ", materia=" + materias.getFirst().getNombre() +
-                ", situacion='" + situacion + '\'' +
-                '}';
+    public SituacionMateria verSituacionFinal(Long NroLegajo, Materia materia) {
+        for (Asistencia asistencia : asistencias) {
+            if (asistencia.getAlumno().getNroLegajo().equals(NroLegajo) &&
+                    asistencia.getMateria().equals(materia)) {
+                // Buscar la situación final en función del número de legajo y materia
+                SituacionMateria situacion = profesorService.obtenerSituacionFinal(asistencia.getAlumno(), materia);
+                return situacion;
+            }
+        }
+        throw new RuntimeException("Situación final no encontrada para el alumno y materia.");
     }
 
 
     // Obtener datos de la carrera
     public Carrera verDatosCarrera(Long NroLegajo) {
+        int legajo = NroLegajo.intValue(); // Convertir Long a int
         for (Alumno alumno : alumnos) {
-            if (alumno.getNroLegajo().equals(NroLegajo)) {
+            if (alumno.getNroLegajo() == legajo) { // Comparar int con int
                 for (Carrera carrera : carreras) {
-                    if (carrera.getId().equals(alumno.getNroLegajo())) {
-                        return new Carrera(carrera.getId(), carrera.getDuracion(),carrera.getNombre(), carrera.getCoordinador(), carrera.getMaterias(), carrera.getPrecioCuota(), carrera.getPrecioInscripcion());
+                    if (carrera.getId() == legajo) { // Comparar int con int
+                        return new Carrera(carrera.getId(), carrera.getDuracion(), carrera.getNombre(), carrera.getCoordinador(), carrera.getMaterias(), carrera.getPrecioCuota(), carrera.getPrecioInscripcion());
                     }
                 }
             }

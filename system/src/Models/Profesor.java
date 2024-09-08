@@ -7,6 +7,7 @@ import java.util.List;
 public class Profesor {
     private String nombre;
     private List<Materia> materias;
+
     // Constructor
     public Profesor(String nombre) {
         this.nombre = nombre;
@@ -31,13 +32,5 @@ public class Profesor {
     }
 
 
-
-    @Override
-    public String toString() {
-        return "Profesor{" +
-                "nombre='" + nombre + '\'' +
-                ", materias='" + materias + '\'' +
-                '}';
-    }
 }
 

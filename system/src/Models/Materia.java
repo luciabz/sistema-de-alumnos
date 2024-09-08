@@ -4,7 +4,7 @@ package Models;
 public class Materia {
     private String nombre;
     private int duracion;
-    private String profesor;
+    private Profesor profesor;
     private String carrera;
     private String horario;
     private int aula;
@@ -13,7 +13,7 @@ public class Materia {
 
 
     //constructor
-    public Materia(String nombre) {
+    public Materia(String nombre, Profesor profesor) {
         this.nombre = nombre;
         this.cantidadHoras = 0;
         this.horario = horario;
@@ -51,10 +51,10 @@ public class Materia {
     public void setAula(int aula) {
         this.aula = aula;
     }
-    public String getProfesor() {
+    public Profesor getProfesor() {
         return profesor;
     }
-    public void setProfesor(String profesor) {
+    public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
     public String getCarrera() {

@@ -40,14 +40,7 @@ public class Main {
         var asistenciasMateria1 = AdmiUniversidad.obtenerAsistenciasPorMateria(materia1);
         System.out.println("Asistencias en " + materia1.getNombre() + ": " + asistenciasMateria1.size());
 
-<<<<<<< HEAD
 
-
-        long inasistenciasMateria1= AdmiUniversidad.contarInasistenciasPorMateria(materia1);
-        System.out.println("Inasistencias en " + materia1.getNombre() + ": " + inasistenciasMateria1);
-
-
-=======
         long inasistenciasMateria1= AdmiUniversidad.contarInasistenciasPorMateria(materia1);
         System.out.println("Inasistencias en " + materia1.getNombre() + ": " + inasistenciasMateria1);
 
@@ -57,7 +50,7 @@ public class Main {
             System.out.println("     Situación Final del Alumno");
             System.out.println("=========================================");
             System.out.println("Alumno: " + alumno1.getNombre() + " " + alumno1.getApellido());
-            System.out.println("Carrera: " + alumno1.getCarrera());
+            System.out.println("Carrera: " + alumno1.getCarreraid());
             System.out.println("-----------------------------------------");
             System.out.println("Materia: " + materia1.getNombre());
             System.out.println("Profesor: " + materia1.getProfesor().getNombre());
@@ -68,7 +61,7 @@ public class Main {
             System.out.println("No hay situación final registrada para el alumno: " + alumno1.getNombre() + " en la materia: " + materia1.getNombre());
             System.out.println("=========================================");
         }
->>>>>>> 51b047f53b1a64eac6ec93324569fb89111acdd7
+
 
     }
 }

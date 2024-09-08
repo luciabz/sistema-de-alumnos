@@ -10,33 +10,29 @@ import java.util.List;
         private String nombre;
         private String apellido;
         private String dni;
-        private int NroLegajo;
-        private String carrera;
+        private Long NroLegajo;
+        private Long carreraid;
         private List<Materia> materiasInscriptas;
-        private String identificacion;
-        private static int contadorLegajo = 1;
 
         //constructor (siempre debe llamarse como la clase) inicia los atributos
         public Alumno(String nombre, String apellido, String dni, int NroLegajo, String carrera, String identificacion) {
             this.materiasInscriptas = new ArrayList<>();
-            this.identificacion = identificacion;
-            this.carrera = carrera;
+            this.carreraid = carrera;
             this.nombre = nombre;
             this.apellido = apellido;
-            this.dni = dni;
-            this.NroLegajo = contadorLegajo++;
+
         }
 
 
         //metodos
-        public void setCarrera(String carrera) //set introduce dato
+        public void setCarreraid(String carreraid) //set introduce dato
         {
-            this.carrera = carrera;
+            this.carreraid = carreraid;
         }
 
 
-        public String getCarrera() { //get presenta datp
-            return carrera;
+        public String getCarreraid() { //get presenta datp
+            return carreraid;
         }
         public String getNombre() {
             return nombre;
@@ -61,18 +57,13 @@ import java.util.List;
             this.dni = dni;
         }
 
-        public int getNroLegajo() {
+        public Long getNroLegajo() {
             return NroLegajo;
         }
-        public void setNroLegajo(int NroLegajo) {
+        public void setNroLegajo(Long NroLegajo) {
             this.NroLegajo = NroLegajo;
         }
-        public String getIdentificacion() {
-            return identificacion;
-        }
-        public void setIdentificacion(String identificacion) {
-            this.identificacion = identificacion;
-        }
+
 
 
     }

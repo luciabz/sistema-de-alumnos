@@ -3,16 +3,25 @@ package Models;
 import java.time.LocalDate;
 
 public class Asistencia {
+    private Long NroLegajo;
     private Alumno alumno;
     private Materia materia;
     private LocalDate fecha;
     private boolean presente;
 
-    public Asistencia(Alumno alumno, Materia materia, LocalDate fecha, boolean presente) {
+    public Asistencia(Long NroLegajo,  Alumno alumno, Materia materia, LocalDate fecha, boolean presente) {
+        this.NroLegajo = NroLegajo;
         this.alumno = alumno;
         this.materia = materia;
         this.fecha = fecha;
         this.presente = presente;
+    }
+    public Long getNroLegajo() {
+        return NroLegajo;
+    }
+
+    public void setNroLegajo(Long nroLegajo) {
+        this.NroLegajo = nroLegajo;
     }
 
     public Alumno getAlumno() {

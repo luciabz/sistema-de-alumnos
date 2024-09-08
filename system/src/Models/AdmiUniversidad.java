@@ -18,7 +18,7 @@ public class AdmiUniversidad {
 
 
 
-public static void agregarAlumno(Alumno unAlumno) {
+    public static void agregarAlumno(Alumno unAlumno) {
         listaAlumnos.add(unAlumno);
     }
 
@@ -40,11 +40,11 @@ public static void agregarAlumno(Alumno unAlumno) {
     }
 
     //para ver si existe el alumno
-    public static boolean existeAlumno(String identificacion){
+    public static boolean existeAlumno(Long NroLegajo){
         boolean existe=false;
         int tamaLista = listaAlumnos.size();
         for (int i=0;i<tamaLista;i++){
-            if (listaAlumnos.get(i).getIdentificacion().equals(identificacion)){
+            if (listaAlumnos.get(i).getNroLegajo().equals(NroLegajo)){
                 existe=true;
                 break;
             }
@@ -52,10 +52,10 @@ public static void agregarAlumno(Alumno unAlumno) {
         return existe;
     }
 
-    public static Alumno obtenerAlumnoPorIdentificacion(String identificacion){
+    public static Alumno obtenerAlumnoPorIdentificacion(Long NroLegajo){
         Alumno unAlumno=null;
         for (int i=0;i<listaAlumnos.size();i++){
-            if (listaAlumnos.get(i).getIdentificacion().equals(identificacion)){
+            if (listaAlumnos.get(i).getNroLegajo().equals(NroLegajo)){
                 unAlumno=listaAlumnos.get(i);
                 break;
             }
@@ -64,10 +64,10 @@ public static void agregarAlumno(Alumno unAlumno) {
     }
     public static boolean estaMatriculado(Matricula unaMatricula){
         boolean existe=false;
-        String identificacion = unaMatricula.getAlumno().getIdentificacion();
+        Long nroLegajo = unaMatricula.getAlumno().getNroLegajo();
         String codigoMateria = unaMatricula.getMateria().getCodigo();
         for(int i=0;i<listaMatriculas.size();i++){
-            if(listaMatriculas.get(i).getAlumno().getIdentificacion().equals(identificacion)
+            if(listaMatriculas.get(i).getAlumno().getNroLegajo().equals(nroLegajo)
                     && listaMatriculas.get(i).getMateria().getCodigo().equals(codigoMateria)){
                 existe=true;
                 break;
@@ -76,9 +76,9 @@ public static void agregarAlumno(Alumno unAlumno) {
         return existe;
     }
 
-    public static void registrarAsistencia(Alumno alumno, Materia materia, LocalDate fecha, boolean presente){
+    public static void registrarAsistencia(Long NroLegajo,Alumno alumno, Materia materia, LocalDate fecha, boolean presente){
         if (alumno != null && materia != null && fecha != null) {
-            Asistencia asistencia = new Asistencia(alumno, materia, fecha, presente);
+            Asistencia asistencia = new Asistencia(NroLegajo,alumno, materia, fecha, presente);
             listaAsistencias.add(asistencia);
         }
     }
@@ -100,11 +100,6 @@ public static void agregarAlumno(Alumno unAlumno) {
                 .collect(Collectors.toList());
 
     }
-
-
-
-
-
 
 
     public static long contarInasistenciaPorAlumno(Alumno alumno) {

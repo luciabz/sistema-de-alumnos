@@ -6,13 +6,17 @@ import Models.Alumno;
 import Models.Materia;
 import Models.Profesor;
 import Models.SituacionMateria;
+import Service.ProfesorService;
 
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Alumno alumno1 = new Alumno("Juan", "Pérez", "12345678", 1, "Computación", "A01");
+        Alumno alumno1 = new Alumno("Juan", "Pérez", "12345678", 1, "Comptación", "A01");
+
         Profesor profesor1 = new Profesor("Contreras");
+        ProfesorService profesorService = new ProfesorService(profesor1);
+
         Materia materia1 = new Materia("Matemáticas", profesor1);
 
         profesor1.agregarMateria(materia1); // Asociamos la materia al profesor
